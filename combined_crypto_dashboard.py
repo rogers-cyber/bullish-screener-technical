@@ -18,7 +18,16 @@ st.title("📊 Combined Bullish Screener + Technical Dashboard")
 # ================================
 timeframe = st.selectbox("Select timeframe", ["15m", "30m", "1h", "4h", "1d"], index=4)
 limit = 200
-exchange = ccxt.binance({'enableRateLimit': True})
+
+# =============================
+# Exchange Setup
+# =============================
+exchange = ccxt.kucoin({
+    'enableRateLimit': True,
+    'headers': {
+        'User-Agent': 'Mozilla/5.0 (compatible; StreamlitBot/1.0)'
+    }
+})
 
 # ================================
 # Utility Functions
